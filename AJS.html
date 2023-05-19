@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="AJS.css"> -->
+    <script src="AJS.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>AngularJS practical Assignment</title>
+    <style>
+       
+        a {
+            color: #007bff;
+            text-decoration: none;
+            background-color: transparent;
+            display: block;
+            margin-left: 400px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper" ng-app="myApp" ng-controller="myCtrl">
+        <div class="container">
+            <div class="row justify-content-around">
+                <form action="" class="col-md-6 bg-light">
+                    <a class="text-right h6 py-6" herf="#!/userlist">User list</a>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name"
+                        id="name" class="form-control" placeholder="Enter Name" required
+                        ng-class="{'is-invalid': myForm.name.$invalid && !myForm.name.$pristine}">
+                        <p class="invalid-feedback" ng-show="myForm.name.$invalid && !myForm.name.$pristine"> 
+                            Please enter your name. </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email"
+                        id="email" class="form-control" placeholder="Enter Email" required
+                        ng-class="{'is-invalid': myForm.email.$invalid && !myForm.email.$pristine}">
+                        <p class="invalid-feedback" ng-show="myForm.email.$invalid && !myForm.email.$pristine"> 
+                            Enter a valid email.
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password"
+                        id="password" class="form-control" placeholder="Enter Password"  required
+                        ng-class="{'is-invalid': myForm.password.$invalid && !myForm.password.$pristine}">
+                        <p class="invalid-feedback" ng-show="myForm.password.$invalid && !myForm.password.$pristine"> 
+                            Please enter your password.
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="phone" name="phone"
+                        id="phone" class="form-control" placeholder="Enter Phone" required
+                        ng-class="{'is-invalid': myForm.phone.$invalid && !myForm.phone.$pristine}">
+                        <p class="invalid-feedback" ng-show="myForm.phone.$invalid && !myForm.phone.$pristine"> 
+                            Please enter your phone.
+                        </p>
+                    </div>
+                    <input type="submit" value="submit"
+                    class="btn-primary btn" ng-click="addContact()"
+                    class="btn-primary btn mt-3 mb-1" ng-disabled="myForm.name.$invalid && myForm.name.$pristine ||
+                    myForm.email.$invalid && myForm.email.$pristine || myForm.password.$invalid && myForm.password.$pristine ||
+                    myForm.phone.$invalid && myForm.phone.$pristine">
+                </form>
+            </div>
+            <ng-view class="ng-scope"></ng-view>
+        </div>
+    </div>
+</body>
+</html>
